@@ -1,16 +1,38 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/questions_screen.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+      const Duration(seconds: 3),
+      () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const QuestionsScreen(),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
           Color.fromRGBO(0, 72, 128, 1.0),
-          Color.fromRGBO(0, 24, 42, 1.0)
+          Color.fromRGBO(0, 24, 42, 1.0),
         ], begin: Alignment.topRight, end: Alignment.bottomLeft),
       ),
       child: Center(
@@ -20,32 +42,15 @@ class WelcomeScreen extends StatelessWidget {
             Image.asset(
               'assets/images/flutter.826x1024.png',
               fit: BoxFit.cover,
-              width: 300,
+              width: MediaQuery.of(context).size.width - 100,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Flutter Questionnaire',
-              style: TextStyle(color: Colors.white, fontSize: 30),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                shape: WidgetStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
-              ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return QuestionsScreen();
-                }));
-              },
-              child: Text('Start Quiz'),
+              style: TextStyle(
+                  color: Color.fromRGBO(69, 198, 201, 1), fontSize: 30),
             ),
           ],
         ),
