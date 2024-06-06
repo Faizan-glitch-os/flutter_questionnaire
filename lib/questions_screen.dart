@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/Answer_button.dart';
+import 'package:flutter_questionnaire/ScoreScreen.dart';
 
 import 'questions.dart';
 
@@ -14,9 +15,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   var questionIndex = 0;
 
   void questionIndexer() {
-    setState(() {
-      questionIndex++;
-    });
+    questionIndex++;
   }
 
   @override
