@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/Answer_button.dart';
 import 'package:flutter_questionnaire/ScoreScreen.dart';
+import 'package:flutter_questionnaire/welcome_screen.dart';
 
 import 'questions.dart';
 
@@ -13,8 +14,18 @@ class QuestionsScreen extends StatefulWidget {
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var questionIndex = 0;
-
   final List<String> selectedAnswers = [];
+
+  void restartQuiz() {
+    questionIndex = 0;
+    selectedAnswers.clear();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WelcomeScreen(),
+      ),
+    );
+  }
 
   void questionIndexer(answerText) {
     if (questionIndex < questions.length - 1) {
@@ -25,10 +36,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         },
       );
     } else {
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Scorescreen(),
+          builder: (context) => Scorescreen(
+              selectedAnswers: selectedAnswers, restartQuiz: restartQuiz),
         ),
       );
     }
@@ -37,7 +49,6 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[questionIndex];
-    print('selectedAnswers.lenght ${selectedAnswers.length}');
 
     return Scaffold(
       body: Container(
