@@ -14,13 +14,30 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var questionIndex = 0;
 
-  void questionIndexer() {
-    questionIndex++;
+  final List<String> selectedAnswers = [];
+
+  void questionIndexer(answerText) {
+    if (questionIndex < questions.length - 1) {
+      setState(
+        () {
+          questionIndex++;
+          selectedAnswers.add(answerText);
+        },
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Scorescreen(),
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[questionIndex];
+    print('selectedAnswers.lenght ${selectedAnswers.length}');
 
     return Scaffold(
       body: Container(
@@ -46,7 +63,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 (item) {
                   return AnswerButton(
                     answerText: item,
-                    onTap: questionIndexer,
+                    onPressed: questionIndexer,
                   );
                 },
               ),

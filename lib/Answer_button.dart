@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
-  AnswerButton({super.key, required this.answerText, required this.onTap});
+  AnswerButton({super.key, required this.answerText, required this.onPressed});
 
   final String answerText;
-  final Function() onTap;
+  final Function(String answerText) onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,9 @@ class AnswerButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: onTap,
+        onPressed: () {
+          onPressed(answerText);
+        },
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: Text(
