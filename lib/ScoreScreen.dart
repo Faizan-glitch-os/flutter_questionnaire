@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/questions.dart';
 
-class Scorescreen extends StatelessWidget {
-  const Scorescreen(
+class ScoreScreen extends StatelessWidget {
+  const ScoreScreen(
       {super.key, required this.selectedAnswers, required this.restartQuiz});
 
   final Function() restartQuiz;
@@ -10,9 +10,14 @@ class Scorescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> correctAnswersList = [
+      for (var answer in selectedAnswers)
+        if (answers.contains(answer)) answer
+    ];
+
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
             Color.fromRGBO(0, 72, 128, 1.0),
             Color.fromRGBO(0, 24, 42, 1.0),
@@ -23,14 +28,14 @@ class Scorescreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'You answered 3 out of ${questions.length} questions correctly',
+                'You answered ${correctAnswersList.length} out of ${questions.length} questions correctly',
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Color.fromRGBO(91, 170, 238, 1.0), fontSize: 30),
               ),
               Container(
                 height: 400,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: ListView.builder(
                   itemCount: selectedAnswers.length,
                   itemBuilder: (context, index) => Padding(
@@ -39,34 +44,34 @@ class Scorescreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
+                          padding: const EdgeInsets.all(10),
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color.fromRGBO(16, 122, 197, 1.0),
                           ),
                           child: Text(
                             '${index + 1}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        SizedBox(width: 20),
+                        const SizedBox(width: 20),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${questions[index].question}',
+                                questions[index].question,
                                 textAlign: TextAlign.start,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 20,
                                   color: Color.fromRGBO(132, 157, 178, 1.0),
                                 ),
                               ),
                               Text(
-                                '${questions[index].answers[0]}',
-                                style: TextStyle(
+                                questions[index].answers[0],
+                                style: const TextStyle(
                                     color: Color.fromRGBO(
                                       132,
                                       157,
@@ -76,8 +81,8 @@ class Scorescreen extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                '${selectedAnswers[index]}',
-                                style: TextStyle(
+                                selectedAnswers[index],
+                                style: const TextStyle(
                                   color: Color.fromRGBO(82, 104, 122, 1.0),
                                 ),
                               ),
@@ -92,7 +97,7 @@ class Scorescreen extends StatelessWidget {
               OutlinedButton(
                 style: ButtonStyle(
                   side: WidgetStateProperty.all(
-                    BorderSide(
+                    const BorderSide(
                       color: Color.fromRGBO(69, 198, 201, 1),
                     ),
                   ),
@@ -103,7 +108,7 @@ class Scorescreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: restartQuiz,
-                child: Text(
+                child: const Text(
                   'Restart Quiz',
                   style: TextStyle(
                     color: Color.fromRGBO(69, 198, 201, 1),

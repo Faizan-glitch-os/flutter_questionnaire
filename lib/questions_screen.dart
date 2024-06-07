@@ -22,24 +22,24 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => WelcomeScreen(),
+        builder: (context) => const WelcomeScreen(),
       ),
     );
   }
 
   void questionIndexer(answerText) {
+    selectedAnswers.add(answerText);
     if (questionIndex < questions.length - 1) {
       setState(
         () {
           questionIndex++;
-          selectedAnswers.add(answerText);
         },
       );
     } else {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Scorescreen(
+          builder: (context) => ScoreScreen(
               selectedAnswers: selectedAnswers, restartQuiz: restartQuiz),
         ),
       );
@@ -52,7 +52,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
             Color.fromRGBO(0, 72, 128, 1.0),
             Color.fromRGBO(0, 24, 42, 1.0),
@@ -64,12 +64,18 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
+                'Question ${questionIndex + 1} of ${questions.length}',
+                style: const TextStyle(fontSize: 15, color: Colors.grey),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 80),
+              Text(
                 currentQuestion.question,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Color.fromRGBO(132, 157, 178, 1.0), fontSize: 30),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               ...currentQuestion.getShuffledAnswers().map(
                 (item) {
                   return AnswerButton(

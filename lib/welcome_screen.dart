@@ -42,7 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               OutlinedButton(
                 style: ButtonStyle(
                   side: WidgetStateProperty.all(
-                    BorderSide(
+                    const BorderSide(
                       color: Color.fromRGBO(69, 198, 201, 1),
                     ),
                   ),
@@ -56,11 +56,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => QuestionsScreen(),
+                      builder: (context) => const QuestionsScreen(),
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Start Quiz',
                   style: TextStyle(
                     color: Color.fromRGBO(69, 198, 201, 1),

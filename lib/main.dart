@@ -6,6 +6,6 @@ import 'package:flutter_questionnaire/welcome_screen.dart';
 void main() => runApp(
       MaterialApp(
         theme: ThemeData(useMaterial3: true),
-        home: WelcomeScreen(),
+        home: const WelcomeScreen(),
       ),
     );

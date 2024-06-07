@@ -14,7 +14,7 @@ class AnswerButton extends StatelessWidget {
       child: OutlinedButton(
         style: ButtonStyle(
           side: WidgetStateProperty.all(
-            BorderSide(
+            const BorderSide(
               color: Color.fromRGBO(69, 198, 201, 1),
             ),
           ),
@@ -32,7 +32,7 @@ class AnswerButton extends StatelessWidget {
           child: Text(
             answerText,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color.fromRGBO(69, 198, 201, 1),
             ),
           ),
