@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/questions.dart';
 
 class ScoreScreen extends StatelessWidget {
-  const ScoreScreen(
+  const ScoreScreen.scoreScreen(
       {super.key, required this.selectedAnswers, required this.restartQuiz});
 
   final Function() restartQuiz;

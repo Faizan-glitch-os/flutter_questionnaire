@@ -39,7 +39,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ScoreScreen(
+          builder: (context) => ScoreScreen.scoreScreen(
               selectedAnswers: selectedAnswers, restartQuiz: restartQuiz),
         ),
       );

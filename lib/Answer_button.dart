@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
-  AnswerButton({super.key, required this.answerText, required this.onPressed});
+  const AnswerButton(
+      {super.key, required this.answerText, required this.onPressed});
 
   final String answerText;
   final Function(String answerText) onPressed;
