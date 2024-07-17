@@ -33,6 +33,7 @@ class AnswerButton extends StatelessWidget {
             answerText,
             textAlign: TextAlign.center,
             style: const TextStyle(
+              fontFamily: 'montserrat',
               color: Color.fromRGBO(69, 198, 201, 1),
             ),
           ),

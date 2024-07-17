@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/questions.dart';
 
 class ScoreScreen extends StatelessWidget {
-  const ScoreScreen.scoreScreen(
+  const ScoreScreen(
       {super.key, required this.selectedAnswers, required this.restartQuiz});
 
   final Function() restartQuiz;
@@ -66,6 +66,7 @@ class ScoreScreen extends StatelessWidget {
                                 textAlign: TextAlign.start,
                                 style: const TextStyle(
                                   fontSize: 20,
+                                  fontFamily: 'montserrat',
                                   color: Color.fromRGBO(132, 157, 178, 1.0),
                                 ),
                               ),
@@ -111,6 +112,7 @@ class ScoreScreen extends StatelessWidget {
                 child: const Text(
                   'Restart Quiz',
                   style: TextStyle(
+                    fontFamily: 'montserrat',
                     color: Color.fromRGBO(69, 198, 201, 1),
                   ),
                 ),

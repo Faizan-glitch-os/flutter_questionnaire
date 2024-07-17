@@ -35,7 +35,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               const Text(
                 'Flutter Questionnaire',
                 style: TextStyle(
-                    color: Color.fromRGBO(69, 198, 201, 1), fontSize: 30),
+                    fontFamily: 'montserrat',
+                    color: Color.fromRGBO(69, 198, 201, 1),
+                    fontSize: 30),
               ),
               OutlinedButton(
                 style: ButtonStyle(
@@ -61,6 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: const Text(
                   'Start Quiz',
                   style: TextStyle(
+                    fontFamily: 'montserrat',
                     color: Color.fromRGBO(69, 198, 201, 1),
                   ),
                 ),

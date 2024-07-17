@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_questionnaire/Answer_button.dart';
 import 'package:flutter_questionnaire/ScoreScreen.dart';
 import 'package:flutter_questionnaire/welcome_screen.dart';
-
 import 'questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ScoreScreen.scoreScreen(
+          builder: (context) => ScoreScreen(
               selectedAnswers: selectedAnswers, restartQuiz: restartQuiz),
         ),
       );
@@ -73,7 +73,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 currentQuestion.question,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                    color: Color.fromRGBO(132, 157, 178, 1.0), fontSize: 30),
+                    fontFamily: 'montserrat',
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(132, 157, 178, 1.0),
+                    fontSize: 30),
               ),
               const SizedBox(height: 50),
               ...currentQuestion.getShuffledAnswers().map(
