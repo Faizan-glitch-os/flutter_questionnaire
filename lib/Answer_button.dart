@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class AnswerButton extends StatelessWidget {
   const AnswerButton(
       {super.key, required this.answerText, required this.onPressed});
@@ -10,7 +12,7 @@ class AnswerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 50),
+      padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 50.w),
       child: OutlinedButton(
         style: ButtonStyle(
           side: WidgetStateProperty.all(
@@ -20,7 +22,7 @@ class AnswerButton extends StatelessWidget {
           ),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
             ),
           ),
         ),
@@ -28,13 +30,14 @@ class AnswerButton extends StatelessWidget {
           onPressed(answerText);
         },
         child: Padding(
-          padding: const EdgeInsets.all(5),
+          padding: EdgeInsets.all(5.r),
           child: Text(
             answerText,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               fontFamily: 'montserrat',
-              color: Color.fromRGBO(69, 198, 201, 1),
+              color: const Color.fromRGBO(69, 198, 201, 1),
+              fontSize: 12.sp,
             ),
           ),
         ),

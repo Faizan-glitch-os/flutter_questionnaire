@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_questionnaire/Answer_button.dart';
 import 'package:flutter_questionnaire/ScoreScreen.dart';
 import 'package:flutter_questionnaire/welcome_screen.dart';
@@ -65,20 +67,23 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             children: [
               Text(
                 'Question ${questionIndex + 1} of ${questions.length}',
-                style: const TextStyle(fontSize: 15, color: Colors.grey),
+                style: TextStyle(fontSize: 15.sp, color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 80),
-              Text(
-                currentQuestion.question,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontFamily: 'montserrat',
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(132, 157, 178, 1.0),
-                    fontSize: 30),
+              SizedBox(height: 80.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
+                child: Text(
+                  currentQuestion.question,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: 'montserrat',
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromRGBO(132, 157, 178, 1.0),
+                      fontSize: 30.sp),
+                ),
               ),
-              const SizedBox(height: 50),
+              SizedBox(height: 50.h),
               ...currentQuestion.getShuffledAnswers().map(
                 (item) {
                   return AnswerButton(

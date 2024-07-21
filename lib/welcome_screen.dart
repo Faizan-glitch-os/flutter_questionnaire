@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_questionnaire/questions_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -24,20 +27,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/flutter.826x1024.png',
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width - 100,
+              Padding(
+                padding: EdgeInsets.all(10.w),
+                child: Image.asset(
+                  'assets/images/flutter.826x1024.png',
+                  fit: BoxFit.cover,
+                  width: ScreenUtil().screenWidth,
+                ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
-              const Text(
+              Text(
                 'Flutter Questionnaire',
                 style: TextStyle(
                     fontFamily: 'montserrat',
-                    color: Color.fromRGBO(69, 198, 201, 1),
-                    fontSize: 30),
+                    color: const Color.fromRGBO(69, 198, 201, 1),
+                    fontSize: 30.sp),
               ),
               OutlinedButton(
                 style: ButtonStyle(
@@ -48,7 +54,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   shape: WidgetStateProperty.all(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                   ),
                 ),
@@ -60,11 +66,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   );
                 },
-                child: const Text(
+                child: Text(
                   'Start Quiz',
                   style: TextStyle(
                     fontFamily: 'montserrat',
-                    color: Color.fromRGBO(69, 198, 201, 1),
+                    fontSize: 10.sp,
+                    color: const Color.fromRGBO(69, 198, 201, 1),
                   ),
                 ),
               ),

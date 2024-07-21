@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_questionnaire/questions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScoreScreen extends StatelessWidget {
   const ScoreScreen(
@@ -30,33 +31,33 @@ class ScoreScreen extends StatelessWidget {
               Text(
                 'You answered ${correctAnswersList.length} out of ${questions.length} questions correctly',
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                    color: Color.fromRGBO(91, 170, 238, 1.0), fontSize: 30),
+                style: TextStyle(
+                    color: const Color.fromRGBO(91, 170, 238, 1.0),
+                    fontSize: 25.sp),
               ),
               Container(
-                height: 400,
-                margin: const EdgeInsets.all(20),
+                height: 400.h,
+                margin: EdgeInsets.all(20.r),
                 child: ListView.builder(
                   itemCount: selectedAnswers.length,
                   itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10.r),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          padding: const EdgeInsets.all(10),
+                          padding: EdgeInsets.all(10.r),
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color.fromRGBO(16, 122, 197, 1.0),
                           ),
                           child: Text(
                             '${index + 1}',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 10.sp),
                           ),
                         ),
-                        const SizedBox(width: 20),
+                        SizedBox(width: 20.w),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,28 +65,31 @@ class ScoreScreen extends StatelessWidget {
                               Text(
                                 questions[index].question,
                                 textAlign: TextAlign.start,
-                                style: const TextStyle(
-                                  fontSize: 20,
+                                style: TextStyle(
+                                  fontSize: 20.sp,
                                   fontFamily: 'montserrat',
-                                  color: Color.fromRGBO(132, 157, 178, 1.0),
+                                  color:
+                                      const Color.fromRGBO(132, 157, 178, 1.0),
                                 ),
                               ),
                               Text(
                                 questions[index].answers[0],
-                                style: const TextStyle(
-                                    color: Color.fromRGBO(
+                                style: TextStyle(
+                                    color: const Color.fromRGBO(
                                       132,
                                       157,
                                       178,
                                       1.0,
                                     ),
-                                    fontWeight: FontWeight.bold),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12.sp),
                               ),
                               Text(
                                 selectedAnswers[index],
-                                style: const TextStyle(
-                                  color: Color.fromRGBO(82, 104, 122, 1.0),
-                                ),
+                                style: TextStyle(
+                                    color:
+                                        const Color.fromRGBO(82, 104, 122, 1.0),
+                                    fontSize: 10.sp),
                               ),
                             ],
                           ),
@@ -109,12 +113,12 @@ class ScoreScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: restartQuiz,
-                child: const Text(
+                child: Text(
                   'Restart Quiz',
                   style: TextStyle(
-                    fontFamily: 'montserrat',
-                    color: Color.fromRGBO(69, 198, 201, 1),
-                  ),
+                      fontFamily: 'montserrat',
+                      color: const Color.fromRGBO(69, 198, 201, 1),
+                      fontSize: 10.sp),
                 ),
               ),
             ],
